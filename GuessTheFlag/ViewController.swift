@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     var countries = [String]()
     var score = 1
+    var correct = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +35,14 @@ class ViewController: UIViewController {
     }
     
     func askQuestion() {
+        countries.shuffle()
+        
        button1.setImage(UIImage(named: countries[0]), for: .normal)
        button2.setImage(UIImage(named: countries[1]), for: .normal)
        button3.setImage(UIImage(named: countries[2]), for: .normal)
+        
+        correct = Int.random(in: 0...2)
+        title = countries[correct].uppercased()
     }
     
     func appendCountries() {
